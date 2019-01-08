@@ -1,4 +1,3 @@
-
 #include "TreeSet.h"
 
 TreeSet::TreeSet()
@@ -6,7 +5,6 @@ TreeSet::TreeSet()
 	this->root = NULL;
 	this->count = 0;
 }
-
 
 TreeSet::~TreeSet()
 {
@@ -82,6 +80,7 @@ AVLNode* TreeSet::recAdd(AVLNode* root, int val, bool taller) {
 	}
 	return root;
 }
+
 AVLNode* TreeSet::leftBalance(AVLNode* root, bool taller) {
 	AVLNode* leftTree = root->left;
 	if (leftTree != NULL) {
@@ -116,6 +115,7 @@ AVLNode* TreeSet::leftBalance(AVLNode* root, bool taller) {
 	}
 	return root;
 }
+
 AVLNode* TreeSet::rightBalance(AVLNode* root, bool taller) {
 	AVLNode* rightTree = root->right;
 	if (rightTree != NULL) {
@@ -150,12 +150,14 @@ AVLNode* TreeSet::rightBalance(AVLNode* root, bool taller) {
 	}
 	return root;
 }
+
 AVLNode* TreeSet::rotateLeft(AVLNode* root) {
 	AVLNode*tempPtr = root->right;
 	root->right = tempPtr->left;
 	tempPtr->left = root;
 	return tempPtr;
 }
+
 AVLNode* TreeSet::rotateRight(AVLNode* root) {
 	AVLNode* tempPtr = root->left;
 	root->left = tempPtr->right;
@@ -171,6 +173,7 @@ bool TreeSet::contains(int val) {
 	}
 	return true;
 }
+
 AVLNode* TreeSet::recContains(AVLNode* root, int val) {
 	// TODO
 	if (root == NULL) {
@@ -213,6 +216,7 @@ int TreeSet::first() {
 
 	return ret->key;
 }
+
 AVLNode* TreeSet::recFirst(AVLNode* root) {
 	if (root == NULL) {
 		throw "NoSuchElementException";
@@ -230,6 +234,7 @@ int TreeSet::last() {
 
 	return ret->key;
 }
+
 AVLNode* TreeSet::recLast(AVLNode* root) {
 	if (root == NULL) {
 		throw "NoSuchElementException";
@@ -333,6 +338,7 @@ AVLNode *TreeSet::removeNode(AVLNode* &root, int val, bool shorter, bool success
 	}
 	return root;
 }
+
 AVLNode *TreeSet::deleteRightBalance(AVLNode* root, bool shorter) {
 	if (root->balance == -1) {
 		root->balance = 0;
@@ -378,6 +384,7 @@ AVLNode *TreeSet::deleteRightBalance(AVLNode* root, bool shorter) {
 	}
 	return root;
 }
+
 AVLNode *TreeSet::deleteLeftBalance(AVLNode* root, bool shorter) {
 	if (root->balance == 1) {
 		root->balance = 0;
@@ -465,6 +472,7 @@ int* TreeSet::toArray() {
 	return ret;
 	//return NULL;
 }
+
 void TreeSet::recToArray(AVLNode* root, int values[], int index) {
 	if (root == NULL) {
 		return;
